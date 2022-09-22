@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Form from 'components/Form';
+import Filter from 'components/Filter';
 import Contacts from 'components/Contacts';
 import Div from './App.styled';
 
@@ -19,6 +20,18 @@ class App extends Component {
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));
+  };
+
+  removeContacts = id => {
+    this.setState(prevState => {
+      const newContacts = prevState.contacts.filter(
+        contact => contact.id !== id
+      );
+
+      return {
+        contacts: newContacts,
+      };
+    });
   };
 
   handleChange = e => {
@@ -46,30 +59,19 @@ class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const { addContacts, handleChange } = this;
+    const { addContacts, handleChange, removeContacts } = this;
     const contacts = this.getFiltredContacts();
 
     return (
       <Div>
         <h1>Phonebook</h1>
-
         <Form onSubmit={addContacts} />
 
-        <div>
-          <h2>Contacts</h2>
-
-          <p>Find contacts by name</p>
-          <input
-            type="text"
-            name="filter"
-            value={filter}
-            onChange={handleChange}
-          />
-
-          <ul>
-            <Contacts contacts={contacts} />
-          </ul>
-        </div>
+        <h2>Contacts</h2>
+        <Filter filter={filter} handleChange={handleChange} />
+        <ul>
+          <Contacts contacts={contacts} remove={removeContacts} />
+        </ul>
       </Div>
     );
   }

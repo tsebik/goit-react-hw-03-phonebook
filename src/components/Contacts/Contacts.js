@@ -1,7 +1,7 @@
-const Contacts = ({ contacts }) => {
+const Contacts = ({ contacts, remove }) => {
   return contacts.map(({ id, name, number }) => (
     <li key={id}>
-      {name}: {number}
+      {name}: {number} <button onClick={() => remove(id)}>delete</button>
     </li>
   ));
 };
