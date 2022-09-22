@@ -12,6 +12,9 @@ class App extends Component {
   };
 
   addContacts = data => {
+    if (this.isDuplicate(data)) {
+      return alert(`${data.name} ia already contact`);
+    }
     const contact = {
       id: shortid.generate(),
       ...data,
@@ -49,12 +52,15 @@ class App extends Component {
     const normalisedFilter = filter.toLowerCase();
     const filteredContacts = contacts.filter(({ name }) => {
       const normalisedName = name.toLowerCase();
-      const result = normalisedName.includes(normalisedFilter);
-
-      return result;
+      return normalisedName.includes(normalisedFilter);
     });
 
     return filteredContacts;
+  };
+
+  isDuplicate = ({ name }) => {
+    const { contacts } = this.state;
+    return contacts.find(item => item.name === name);
   };
 
   render() {
