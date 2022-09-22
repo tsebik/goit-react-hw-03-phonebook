@@ -1,6 +1,5 @@
 const Contacts = ({ contacts }) => {
-  console.log(contacts);
-  return contacts.map(({ id, data: { name, number } }) => (
+  return contacts.map(({ id, name, number }) => (
     <li key={id}>
       {name}: {number}
     </li>
