@@ -3,7 +3,7 @@ import shortid from 'shortid';
 import Form from 'components/Form';
 import Filter from 'components/Filter';
 import Contacts from 'components/Contacts';
-import Div from './App.styled';
+import { Div, ContainerForm, Title } from 'components/App/App.styled';
 
 class App extends Component {
   state = {
@@ -70,14 +70,15 @@ class App extends Component {
 
     return (
       <Div>
-        <h1>Phonebook</h1>
-        <Form onSubmit={addContacts} />
+        <Title>Phonebook</Title>
+        <ContainerForm>
+          <Form onSubmit={addContacts} />
+        </ContainerForm>
 
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
         <Filter filter={filter} handleChange={handleChange} />
-        <ul>
-          <Contacts contacts={contacts} remove={removeContacts} />
-        </ul>
+
+        <Contacts contacts={contacts} remove={removeContacts} />
       </Div>
     );
   }
