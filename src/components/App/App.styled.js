@@ -18,7 +18,7 @@ const Title = styled.h2`
 `;
 
 const ListContacts = styled.ul`
-  display: flex;
+  display: block;
   margin: 0px 0px 5px 0px;
 `;
 
