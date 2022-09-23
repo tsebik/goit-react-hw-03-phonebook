@@ -1,10 +1,5 @@
 import styled from '@emotion/styled';
 
-const ListContacts = styled.ul`
-  display: flex;
-  margin: 0px 0px 5px 0px;
-`;
-
 const ItemContacts = styled.li`
   display: flex;
   font-size: 20px;
@@ -21,4 +16,4 @@ const Btn = styled.button`
   margin-left: 15px;
 `;
 
-export { ListContacts, ItemContacts, Btn };
+export { ItemContacts, Btn };

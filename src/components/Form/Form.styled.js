@@ -16,6 +16,11 @@ const Btn = styled.button`
   height: 25px;
   margin-bottom: 10px;
   border-radius: 4px;
+  cursor: pointer;
+
+  :hover {
+    background-color: greenyellow;
+  }
 `;
 
 export { Label, FormInput, Btn };

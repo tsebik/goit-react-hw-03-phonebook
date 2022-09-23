@@ -17,4 +17,9 @@ const Title = styled.h2`
   margin: 0px 0px 10px 0px;
 `;
 
-export { Div, ContainerForm, Title };
+const ListContacts = styled.ul`
+  display: flex;
+  margin: 0px 0px 5px 0px;
+`;
+
+export { Div, ContainerForm, Title, ListContacts };
