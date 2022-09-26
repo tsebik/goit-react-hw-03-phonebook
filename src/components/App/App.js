@@ -2,13 +2,8 @@ import React, { Component } from 'react';
 import shortid from 'shortid';
 import Form from 'components/Form';
 import Filter from 'components/Filter';
-import Contacts from 'components/Contacts';
-import {
-  Div,
-  ContainerForm,
-  Title,
-  ListContacts,
-} from 'components/App/App.styled';
+import Contacts from 'components/Constacts';
+import { Div, ContainerForm, Title } from 'components/App/App.styled';
 
 class App extends Component {
   state = {
@@ -82,9 +77,7 @@ class App extends Component {
 
         <Title>Contacts</Title>
         <Filter filter={filter} handleChange={handleChange} />
-        <ListContacts>
-          <Contacts contacts={contacts} remove={removeContacts} />
-        </ListContacts>
+        <Contacts contacts={contacts} remove={removeContacts} />
       </Div>
     );
   }
