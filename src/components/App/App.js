@@ -63,6 +63,14 @@ class App extends Component {
     return contacts.find(item => item.name === name);
   };
 
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+  }
+
   render() {
     const { filter } = this.state;
     const { addContacts, handleChange, removeContacts } = this;
